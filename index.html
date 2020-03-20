@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheap Flights UI</title>
+    <!-- materialize.css library -->
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>       
+    <!-- awesome font library -->
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- pure.css library -->
+     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="card-panel teal lighten-2"> 
+                <h1 class="font-weight-bold">Cheap Flights<i class="fas fa-plane-departure"></i></h1>
+            </div>
+        </header>
+        
+        <section>
+            <!-- section to select location and destination -->
+            <div>
+                <form class="pure-form pure-form-stacked">
+                    <fieldset>
+                        <legend>Book Your Flights Now</legend>
+                
+                        <label for="Location">Location</label>
+                        <input id="locationInput" type="text" placeholder="Location Country">
+                        <span class="pure-form-message">This is a required field.</span>
+                
+                        <label for="Destination">Destination</label>
+                        <input id="destinationInput" type="text" placeholder="Destination Country">
+                        <span class="pure-form-message">This is a required field.</span>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+        
+
+        <section>
+            <form class="pure-form pure-form-stacked">
+                <fieldset>
+                    <legend>Select Dates</legend>
+                    <div>
+                        <label for="DeapartingDate">Departing Date</label>
+                        <input id="departingInput" type="text" placeholder="(mm/dd/yy)">
+                    </div>
+            
+                    <div>
+                        <label for="ReturningDate">Returning Date</label>
+                        <input id="returningInput" type="text" placeholder="(mm/dd/yy)">
+                    </div>
+                    <button type="submit" class="pure-button pure-button-primary submitBtn">Submit</button>
+                </fieldset>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
+
