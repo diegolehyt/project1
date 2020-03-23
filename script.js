@@ -2,6 +2,28 @@
 //----------------------------------------/ project 1 - group 2 /--------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------
 
+//Date Picker
+const elems = document.querySelectorAll('.datepicker');
+M.Datepicker.init(elems, {
+    format: 'dd/mm/yyyy'
+});
+
+//Check Box
+let checkbox = document.getElementById('checkbox');
+let returnDateDiv = document.getElementById("returnDateDiv")
+
+checkbox.addEventListener( 'change', function() {
+    if(this.checked) {
+        returnDateDiv.style.display = "block";
+    } 
+    else {
+        returnDateDiv.style.display = "none";
+    }
+});
+
+
+
+
 document.getElementById('submitBtn').addEventListener('click', function (event) {
 
     event.preventDefault()
@@ -9,14 +31,38 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
     // Grab the text from the input box
     let locationFrom = document.getElementById("locationInput").value
     let locationTo = document.getElementById("destinationInput").value
-    let dateFrom = document.getElementById("departingInput").value
+
+
+    //--------------------------------------    extract date info into variables   -------------------------------------
+    //Date From
+    let dateFrom = document.getElementById("departingInput").value; 
+    let dateprint = document.getElementById('printDate1');
+
+    //day From
+    let dayFrom = dateFrom.substr(0, 2);
+    //month From
+    let monthFrom = dateFrom.substr(3, 2);
+    //year From
+    let yearFrom = dateFrom.substr(6, 7);
+
+    dateFrom = dayFrom + '%2F' + monthFrom + '%2F' + yearFrom; 
+    dateprint.innerHTML = dateFrom;
+
+    //Date Back
     let dateTo = document.getElementById("returningInput").value
 
+    //day back
+    let dayTo = dateTo.substr(0, 2);
+    //month back
+    let monthTo = dateTo.substr(3, 2);
+    //year back
+    let yearTo = dateTo.substr(6, 7);
 
+    dateTo = dayTo + '%2F' + monthTo + '%2F' + yearTo;
 
-
+    
     //global variables
-    let currency = "CAD"  //remove when input added
+    let currency = document.getElementById('currency').value;  //remove when input added
     //let currency = document.getElementById("currencyInput").value   //use for currency input
 
     // APIs call construction 
@@ -77,6 +123,10 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
             let fromPrice = JSON.stringify(Fdata.data[0].price);
             let fromPriceBag = JSON.stringify(Fdata.data[0].bags_price[1]);
 
+            if (isNaN(fromPriceBag)){
+                fromPriceBag = 0;
+            }
+
             let totalPriceFrom = parseFloat(fromPrice) + parseFloat(fromPriceBag); //total price From EUR
 
             //Currency API call-----------------------------------------------------------------
@@ -131,6 +181,10 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
                     //price Back variables 
                     let backPrice = JSON.stringify(Fdata.data[0].price);
                     let backPriceBag = JSON.stringify(Fdata.data[0].bags_price[1]);
+
+                    if (isNaN(backPriceBag)){
+                        backPriceBag = 0;
+                    }
         
                     let finalPriceBack = (parseFloat(backPrice) + parseFloat(backPriceBag)) * currencyRate; //Final price Back (on currency selected)
 

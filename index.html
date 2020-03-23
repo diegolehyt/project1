@@ -7,8 +7,7 @@
     <!-- materialize.css library -->
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>       
+       
     <!-- awesome font library -->
      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- pure.css library -->
@@ -30,11 +29,11 @@
                         <legend>Book Your Flights Now</legend>
                 
                         <label for="Location">Location</label>
-                        <input id="locationInput" type="text" placeholder="Location Country">
+                        <input id="locationInput" type="text" placeholder="Location Country" onkeyup="this.value = this.value.toUpperCase();">
                         <span class="pure-form-message">This is a required field.</span>
                 
                         <label for="Destination">Destination</label>
-                        <input id="destinationInput" type="text" placeholder="Destination Country">
+                        <input id="destinationInput" type="text" placeholder="Destination Country" onkeyup="this.value = this.value.toUpperCase();">
                         <span class="pure-form-message">This is a required field.</span>
                     </fieldset>
                 </form>
@@ -48,18 +47,43 @@
 
                     <div>
                         <label for="DeapartingDate">Departing Date</label>
-                        <input id="departingInput" type="text" placeholder="(mm/dd/yy)">
+                        <input type="text" id="departingInput" class="datepicker" placeholder="mm/dd/yyyy">
+                        <br>
+                        
+                        <label>
+                            <input type="checkbox" id="checkbox"/>
+                            <span>Round Trip</span>
+                        </label>
+                        
                     </div>
-            
-                    <div>
-                        <label for="ReturningDate">Returning Date</label>
-                        <input id="returningInput" type="text" placeholder="(mm/dd/yy)">
-                    </div>
+
                     <br>
+
+                    <div id="returnDateDiv" style="display: none;">
+                        <label for="ReturningDate">Returning Date</label>
+                        <input type="text" id="returningInput" class="datepicker" placeholder="mm/dd/yyyy">
+                    </div>
+
+                    <br>
+
+                    <legend>Select Currency</legend>
+
+                    <div>
+                        <label for="DeapartingDate">Currency Rate</label>
+                        <input type="text" id="currency" maxlength="3" size="3" placeholder="EUR" onkeyup="this.value = this.value.toUpperCase();" style="width: 60px;">
+                    </div>
+
                     <button id="submitBtn" type="submit" class="pure-button pure-button-primary submitBtn">Submit</button>
+                    
+                    
+
+                    
                 </fieldset>
             </form>
         </section>
+        <div id="printDate1">
+
+        </div>
         <div id="print">
             
         </div>
@@ -76,6 +100,10 @@
             
         </div>
     </div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
