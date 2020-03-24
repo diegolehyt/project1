@@ -28,15 +28,24 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
 
     event.preventDefault()
 
+    //Hide Main Page
+    let mainPage = document.getElementById('mainPage');
+    let mainPage2 = document.getElementById('mainPage2');
+    mainPage.style.display = "none";
+    mainPage2.style.display = "none";
+
     // Grab the text from the input box
     let locationFrom = document.getElementById("locationInput").value
     let locationTo = document.getElementById("destinationInput").value
+
+    let locationFrom2 = locationTo;
+    let locationTo2 = locationFrom;
 
 
     //--------------------------------------    extract date info into variables   -------------------------------------
     //Date From
     let dateFrom = document.getElementById("departingInput").value; 
-    let dateprint = document.getElementById('printDate1');
+
 
     //day From
     let dayFrom = dateFrom.substr(0, 2);
@@ -46,10 +55,19 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
     let yearFrom = dateFrom.substr(6, 7);
 
     dateFrom = dayFrom + '%2F' + monthFrom + '%2F' + yearFrom; 
-    dateprint.innerHTML = dateFrom;
+    
 
     //Date Back
     let dateTo = document.getElementById("returningInput").value
+
+    //in case of one way trip
+    if (dateTo === ""){
+        dateTo = document.getElementById("departingInput").value;
+        locationFrom2 = locationFrom;
+        locationTo2 = locationTo;
+    }
+
+
 
     //day back
     let dayTo = dateTo.substr(0, 2);
@@ -63,7 +81,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
     
     //global variables
     let currency = document.getElementById('currency').value;  //remove when input added
-    //let currency = document.getElementById("currencyInput").value   //use for currency input
+
 
     // APIs call construction 
     //flight API "one Way Trip"
@@ -72,12 +90,12 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
 
     //flight API "back Trip only"   
     let flightURL2 =
-        'https://api.skypicker.com/flights?flyFrom=' + locationTo + '&to=' + locationFrom + '&dateFrom=' + dateTo + '&partner=picky&v=3';
+        'https://api.skypicker.com/flights?flyFrom=' + locationFrom2 + '&to=' + locationTo2 + '&dateFrom=' + dateTo + '&partner=picky&v=3';
 
     //currency API
     let currencyURL = 'http://data.fixer.io/api/latest?access_key=fe4a412b107682cf0ed9c555bfc457c7&symbols=' + currency;
 
-    //Flight From API call-----------------------------------------------------------------
+    //--------------------------------------------------  Flight From API call  ----------------------------------------------------------------
     fetch(flightURL)
         .then(function (response) {
             return response.json()
@@ -85,10 +103,10 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
         .then(function (Fdata) {
 
             //PRINT BOXES TO TEST RESULTS
-            let a = document.getElementById('print');
-            let b = document.getElementById('print2');
-            let c = document.getElementById('print3');
-            let d = document.getElementById('print4');
+            let CRdiv = document.getElementById('print');
+            let fromPriceDiv = document.getElementById('fromPrice');
+            let backPriceDiv = document.getElementById('backPrice');
+            let totalPriceDiv = document.getElementById('totalPriceDiv');
             
             // b.textContent = JSON.stringify(Fdata.data[0].price);   //ticket price From
             // b.textContent = JSON.stringify(Fdata.data[0].bags_price[1]);   //bag price From
@@ -188,15 +206,32 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
         
                     let finalPriceBack = (parseFloat(backPrice) + parseFloat(backPriceBag)) * currencyRate; //Final price Back (on currency selected)
 
+                    // Incase of One way trip
+                    if (finalPriceFrom == finalPriceBack){
+                        finalPriceBack = 0;
+                    }
+
                     //Final Price Round Trip
                     let finalPrice = finalPriceFrom + finalPriceBack;  // on currency selected
 
 
-                    //PRINT BOXES TO TEST RESULTS
-                    a.textContent = currencyRate;
-                    b.textContent = finalPriceFrom;
-                    c.textContent = finalPriceBack;
-                    d.textContent = finalPrice;            
+                    //PRINT BOXES RESULTS
+                    //CRdiv.textContent = currencyRate; //print currency rate test
+                    fromPriceDiv.textContent = 'DEPART Price: ' + finalPriceFrom.toFixed(2) + ' ' + currency;
+                    backPriceDiv.textContent = 'RETURN Price: ' + finalPriceBack.toFixed(2) + ' ' + currency;
+                    totalPriceDiv.textContent = 'TOTAL Price: ' + finalPrice.toFixed(2) + ' ' + currency;   
+                    
+                    //print boxes display
+                    let fromDiv = document.getElementById('fromDiv');
+                    let returnDiv = document.getElementById('returnDiv');
+                    fromDiv.style.display = "block";
+                    totalPriceDiv.style.display = "block";
+
+                    if (finalPriceBack != 0){
+                        returnDiv.style.display = "block";
+                    }
+
+
 
 
 
