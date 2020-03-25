@@ -1,0 +1,22 @@
+.city-info{
+    display: inline;
+}
+
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.5),
+      rgba(0,0,0,0.5)),url(https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9);
+    background-position: center;
+    color: white;
+}
+
+.submitBtn{
+    color: black;
+}
+
+.flight-info {
+    color: black;
+}
+
+.total-card{
+    color: black;
+}

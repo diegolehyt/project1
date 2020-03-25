@@ -1,65 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheap Flights UI</title>
-    <!-- materialize.css library -->
-     <!-- Compiled and minified CSS -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+	<title>Cheap Flights</title>
+	
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>       
+       
     <!-- awesome font library -->
      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- pure.css library -->
      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+	 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
+	<div class="container">
         <header>
             <div class="card-panel teal lighten-2"> 
                 <h1 class="font-weight-bold">Cheap Flights<i class="fas fa-plane-departure"></i></h1>
             </div>
-        </header>
-        
-        <section>
-            <!-- section to select location and destination -->
-            <div>
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
-                        <legend>Book Your Flights Now</legend>
-                
-                        <label for="Location">Location</label>
-                        <input id="locationInput" type="text" placeholder="Location Country">
-                        <span class="pure-form-message">This is a required field.</span>
-                
-                        <label for="Destination">Destination</label>
-                        <input id="destinationInput" type="text" placeholder="Destination Country">
-                        <span class="pure-form-message">This is a required field.</span>
-                    </fieldset>
-                </form>
-            </div>
-        </section>
-        
-        <section>
-            <form class="pure-form pure-form-stacked">
-                <fieldset>
-                    <legend>Select Dates</legend>
+	</header>
+	
+	<div id="mainPage" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-md-push-5">
+						<div class="booking-cta">
+							<h1>Book Now!</h1>
+							<p>Book cheap and affordable flights now</p>
+						</div>
+					</div><HR></HR>
+					<div class="col-md-4 col-md-pull-7">
+						<div class="booking-form">
+							<form>
+								<div>
+									<label>
+										<input type="checkbox" id="checkbox"/>
+										<span>One-Way</span>
+									</label>
+									<label>
+										<input type="checkbox" id="checkbox"/>
+										<span>Round-Trip</span>
+									</label>
+								</div>
+								
 
-                    <div>
-                        <label for="DeapartingDate">Departing Date</label>
-                        <input id="departingInput" type="text" placeholder="(mm/dd/yy)">
-                    </div>
-            
-                    <div>
-                        <label for="ReturningDate">Returning Date</label>
-                        <input id="returningInput" type="text" placeholder="(mm/dd/yy)">
-                    </div>
-                    <br>
-                    <button type="submit" class="pure-button pure-button-primary submitBtn">Submit</button>
-                </fieldset>
-            </form>
-        </section>
-    </div>
+								<div class="form-group">
+									<span class="form-label">Your Location</span>
+									<input class="locationInput" type="text" placeholder="Enter a airport code">
+								</div>
+								<div class="form-group">
+									<span class="form-label">Your Destination</span>
+									<input class="destinationInput" type="text" placeholder="Enter a airport code">
+								</div>
+								<div class="row no-margin">
+									<div class="col-sm-4">
+										<div class="form-group">
+											<span class="form-label">Departing Date</span>
+											<input class="departingInput" type="date" required>
+										</div>
+
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<span class="form-label">Returning Date</span>
+											<input class="returning-date" type="date" required>
+										</div>
+									</div>
+								</div>
+
+								<div><span>Currency:</span>
+									<input type="text" id="currency" maxlength="3" size="3" placeholder='"EUR"' onkeyup="this.value = this.value.toUpperCase();" style="width: 60px;">
+								</div>
+
+								<div class="form-btn">
+									<button class="submitBtn">Book Now!</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
 </body>
+
 </html>

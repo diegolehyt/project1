@@ -12,8 +12,10 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>       
     <!-- awesome font library -->
      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <link rel="stylesheet" href="style.css">
     <!-- pure.css library -->
      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    
 </head>
 <body>
     <div class="container">
@@ -24,26 +26,52 @@
         </header>
         
         <section>
-            <form class="pure-form pure-form-stacked">
-                <fieldset>
-                    <div class="pure-form-message-inline">
-                        <label for="Price in USD">Price in USD</label>
-                        <input id="name" type="text">
+            <div class="col s12 m7  ">
+                <h2 class="header">Your Flight Info...</h2>
+                
+                <div class="card horizontal flight-info">
+                  <div class="card-info">
+                    <h4 id="date">date</h4><hr>
+                    
+                    <div class="city-info">
+                        <h3 class="location-city-name">City Name</h3><span>airport code</span>
+                    </div><hr>
+                   
+                    <div class="city-info">
+                        <h4 class="time-duration">Time duration</h4>
+                        <h4 class="number-of-stops">number of stops</h4>
+                    </div><hr>
+                    <div>
+                        <h3 class="destination-city-name">City Name</h3><span>airport code</span>
                     </div>
+                  </div>
 
-                    <br> <br>
-            
-                    <div class="pure-form-message-inline">
-                        <label for="Price in local currency">Price in Local Currency</label>
-                        <input id="password" type="password">
+                  <div class="card-stacked">
+                    <div>
+                      <h4>Price</h4>
+                    </div><hr>
+                    <div class="price-box">
+                        <h3 class="total-price-one-way">price one way</h3>
+                        <h3 class="total-price-round-trip">price round trip</h3>
                     </div>
-                </fieldset>
-            </form>
-            <br> <br>
-            <button type="submit" class="pure-button pure-button-primary goBackBtn">Go Back</button>
+                  </div>
+                </div>
+            </div>
         </section>
-        
+
+        <section>
+          
+            <div class="col s12 m7">
+                <div class="card darken-1  total-card">
+                    <div class="card-content"><span class="card-title">TOTAL:</span>
+                      <p>$$$</p>
+                    </div>
+                </div>
+            </div>      
+        </section>
     </div>
 </body>
 </html>
+
+
 
