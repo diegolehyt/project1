@@ -241,4 +241,6 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
 
     
 })
+//remove classes from materialize in order to fix calendar
+//document.querySelector('.select-dropdown').style.display = "none";
 

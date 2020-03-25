@@ -47,7 +47,14 @@
 
                     <div>
                         <label for="DeapartingDate">Departing Date</label>
-                        <input type="text" id="departingInput" class="datepicker" placeholder="mm/dd/yyyy">
+
+                        <form>
+                            <div class="input-field">
+                                <input type="text" id="departingInput" class="datepicker" placeholder="mm/dd/yyyy">
+                            </div>
+                        </form>
+                        
+                        
                         <br>
                         
                         <label>
@@ -82,36 +89,51 @@
                 </fieldset>
             </form>
         </section>
-        <div id="fromDiv" style="height: 200px; background-color: greenyellow; display: none;">
+        
+        <div class="row">
 
-            <div id="fromInfo">
+            <div class="col s8 offset-s4" id="fromDiv" style="height: 200px; background-color: greenyellow; display: none;">
 
-            </div>
-
-            <div id="fromPrice">
-
-            </div>
-
-        </div>
-
-        <br>
-
-        <div id="returnDiv" style="height: 200px; background-color: yellow; display: none;">
-
-            <div id="backInfo">
-
-            </div>
-
-            <div id="backPrice">
-
+                <div class="row">
+                    <div class="col s9" id="fromInfo">
+                        Date / airport / city name
+                    </div>
+        
+                    <div class="col s3" id="fromPrice">
+        
+                    </div>
+                </div>
+    
             </div>
 
         </div>
 
-        <br>
+        
 
-        <div id="totalPriceDiv" style="height: 50px; width: 200px; background-color: lightcoral; display: none;">
+        <div class="row">
+
+            <div class="col s8 offset-s4" id="returnDiv" style="height: 200px; background-color: yellow; display: none;">
+
+                <div class="row">
+                    <div class="col s9" id="backInfo">
+                        Date / airport / city name
+                    </div>
+        
+                    <div class="col s3" id="backPrice">
+        
+                    </div>
+                </div>
+
+            </div>
+    
+        </div>
+
+        <div class="row">
+
+            <div  class="col s2 offset-s10" id="totalPriceDiv" style="height: 50px; background-color: lightcoral; display: none;">
             
+            </div>
+
         </div>
 
         <!-- test Divs -->
