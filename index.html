@@ -26,6 +26,10 @@
                 <form class="pure-form pure-form-stacked">
                     <fieldset>
                         <legend>Book Your Flights Now</legend>
+
+                        <label for="Name">Name</label>
+                        <input id="nameInput" type="text" placeholder="e.g Jane Doe">
+                        <span class="pure-form-message">This is a required field.</span>
                 
                         <label for="Location">Location</label>
                         <input id="locationInput" type="text" placeholder="Location Country" onkeyup="this.value = this.value.toUpperCase();" onfocus="this.value=''">
