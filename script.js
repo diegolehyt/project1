@@ -2,6 +2,24 @@
 //----------------------------------------/ project 1 - group 2 /--------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------
 
+//Local Storage SetUp 
+if (localStorage.getItem('locationFromInput') !== null && localStorage.getItem('currencyInput') !== null ){
+   let Pcity = localStorage.getItem('locationFromInput');
+   let Pcurrency = localStorage.getItem('currencyInput');
+   document.getElementById("locationInput").setAttribute("value", Pcity);
+   document.getElementById("currency").setAttribute("value", Pcurrency);
+
+}
+
+//Reset Data
+let resetBtn = document.getElementById('resetBtn');
+resetBtn.addEventListener('click', function(){
+    
+    localStorage.clear();
+    location.reload(true);
+})
+
+
 //Date Picker
 const elems = document.querySelectorAll('.datepicker');
 M.Datepicker.init(elems, {
@@ -25,6 +43,10 @@ checkbox.addEventListener( 'change', function() {
 
 
 document.getElementById('submitBtn').addEventListener('click', function (event) {
+
+    // Loader
+    let loader = document.getElementById('loader');
+    loader.style.display = 'block';
 
     event.preventDefault()
 
@@ -102,11 +124,26 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
         })
         .then(function (Fdata) {
 
-            //PRINT BOXES TO TEST RESULTS
+            //--------------------------------------   Getting all "Result boxes" from the DOM   -------------------------------------------------
             let CRdiv = document.getElementById('print');
+            //Prices DOM
             let fromPriceDiv = document.getElementById('fromPrice');
             let backPriceDiv = document.getElementById('backPrice');
             let totalPriceDiv = document.getElementById('totalPriceDiv');
+            //Depart Flight
+            let departDate1 = document.getElementById('departDate1');
+            let cityFromInfo1 = document.getElementById('cityFromInfo1');
+            let durationInfo1 = document.getElementById('durationInfo1');
+            let cityBackInfo1 = document.getElementById('cityBackInfo1');
+            let arriveDate1 = document.getElementById('arriveDate1');
+            //Return Flight
+            let departDate2 = document.getElementById('departDate2');
+            let cityFromInfo2 = document.getElementById('cityFromInfo2');
+            let durationInfo2 = document.getElementById('durationInfo2');
+            let cityBackInfo2 = document.getElementById('cityBackInfo2');
+            let arriveDate2 = document.getElementById('arriveDate2');
+
+            //---------------------------------------------------------------------------------------------------------------
             
             // b.textContent = JSON.stringify(Fdata.data[0].price);   //ticket price From
             // b.textContent = JSON.stringify(Fdata.data[0].bags_price[1]);   //bag price From
@@ -137,12 +174,20 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
             //     a.textContent = (JSON.stringify(Fdata.data[0].route[i]));    
             // }
 
+            //City Variables
+            let cityNameFrom = JSON.stringify(Fdata.data[0].cityFrom);
+            let durationFrom = JSON.stringify(Fdata.data[0].fly_duration);
+            let stopsFrom = JSON.stringify(Fdata.data[0].route.length);
+            let cityNameBack = JSON.stringify(Fdata.data[0].cityTo);
+            let df = Math.round((JSON.stringify(Fdata.data[0].duration.total) / 3600) / 24);
+             
+
             //price variables 
             let fromPrice = JSON.stringify(Fdata.data[0].price);
             let fromPriceBag = JSON.stringify(Fdata.data[0].bags_price[1]);
 
             if (isNaN(fromPriceBag)){
-                fromPriceBag = 0;
+                fromPriceBag = 40;
             }
 
             let totalPriceFrom = parseFloat(fromPrice) + parseFloat(fromPriceBag); //total price From EUR
@@ -171,7 +216,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
                     // a.textContent = JSON.stringify(Fdata.data[0].price);   //ticket price Back 
                     // b.textContent = JSON.stringify(Fdata.data[0].bags_price[1]);   //bag price Back
                     
-                    // //country from info
+                    // //country to info
                     // a.textContent = JSON.stringify(Fdata.data[0].countryFrom.name);   //country Back
                     // b.textContent = JSON.stringify(Fdata.data[0].countryFrom.code);   //country code Back 
                     // a.textContent = JSON.stringify(Fdata.data[0].cityFrom);           //City Back
@@ -195,14 +240,21 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
                     // for (let i = 0; JSON.stringify(Fdata.data[0].airlines.length) < i ; i++){ //for loop airlines
                     //     a.textContent = (JSON.stringify(Fdata.data[0].route[i]));    
                     // }
-        
+
+                    //flight duration variables 
+                    let durationBack = JSON.stringify(Fdata.data[0].fly_duration);
+                    let stopsBack = JSON.stringify(Fdata.data[0].route.length);
+                    let db = Math.round((JSON.stringify(Fdata.data[0].duration.total) / 3600) / 24);
+
                     //price Back variables 
                     let backPrice = JSON.stringify(Fdata.data[0].price);
                     let backPriceBag = JSON.stringify(Fdata.data[0].bags_price[1]);
 
                     if (isNaN(backPriceBag)){
-                        backPriceBag = 0;
+                        backPriceBag = 40;
                     }
+
+                    //-------------------------------------------   Formulas   ----------------------------------------------------------
         
                     let finalPriceBack = (parseFloat(backPrice) + parseFloat(backPriceBag)) * currencyRate; //Final price Back (on currency selected)
 
@@ -215,11 +267,31 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
                     let finalPrice = finalPriceFrom + finalPriceBack;  // on currency selected
 
 
-                    //PRINT BOXES RESULTS
+                    //---------------------------------------------   PRINT BOXES RESULTS  --------------------------------------------------
                     //CRdiv.textContent = currencyRate; //print currency rate test
+                    //Prices Results
                     fromPriceDiv.textContent = 'DEPART Price: ' + finalPriceFrom.toFixed(2) + ' ' + currency;
                     backPriceDiv.textContent = 'RETURN Price: ' + finalPriceBack.toFixed(2) + ' ' + currency;
-                    totalPriceDiv.textContent = 'TOTAL Price: ' + finalPrice.toFixed(2) + ' ' + currency;   
+                    totalPriceDiv.textContent = 'TOTAL Price: ' + finalPrice.toFixed(2) + ' ' + currency;
+
+                    //ONE WAY TRIP--------------------
+                    departDate1.textContent = dayFrom + '/' + monthFrom;
+                    cityFromInfo1.textContent = cityNameFrom + ' ' + locationFrom;
+                    durationInfo1.textContent = durationFrom + ' ' + stopsFrom;
+                    cityBackInfo1.textContent = cityNameBack + ' ' + locationTo;
+                    //date From depart
+                    arriveDate1.textContent = (parseInt(dayFrom) + df) + '/' + monthFrom;
+
+                    //ROUND TRIP-----------------------
+                    departDate2.textContent = dayTo + '/' + monthTo;
+                    cityFromInfo2.textContent = cityNameBack + ' ' + locationTo;
+                    durationInfo2.textContent = durationBack + ' ' + stopsBack;
+                    cityBackInfo2.textContent = cityNameFrom + ' ' + locationFrom;
+                    //date From depart
+                    arriveDate2.textContent = (parseInt(dayTo) + db) + '/' + monthTo;  
+
+                    //Loader Display
+                    loader.style.display = 'none';
                     
                     //print boxes display
                     let fromDiv = document.getElementById('fromDiv');
@@ -230,6 +302,18 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
                     if (finalPriceBack != 0){
                         returnDiv.style.display = "block";
                     }
+
+                    //Local Storage
+                    locationFrom = localStorage.setItem('locationFromInput', locationFrom);
+                    currency = localStorage.setItem('currencyInput', currency);
+
+                    //Go Back
+                    let goBackBtn = document.getElementById('goBackBtn');
+                    goBackBtn.style.display = "block";
+                    goBackBtn.addEventListener('click', function(){
+
+                        location.reload(true);
+                    })
 
 
 

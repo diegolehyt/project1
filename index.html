@@ -4,14 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cheap Flights UI</title>
-    <!-- materialize.css library -->
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-       
-    <!-- awesome font library -->
-     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!-- pure.css library -->
-     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+        <!-- materialize.css library -->
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        
+        <!-- awesome font library -->
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <!-- pure.css library -->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+        <!-- Loader -->
+        <style>
+            /* Center the loader */
+            .loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 150px;
+            height: 150px;
+            margin: -75px 0 0 -75px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid teal;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            }
+
+            @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+            }
+
+            @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+            }
+
+            /* Add animation to "page content" */
+            .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+            }
+
+            @-webkit-keyframes animatebottom {
+            from { bottom:-100px; opacity:0 } 
+            to { bottom:0px; opacity:1 }
+            }
+
+            @keyframes animatebottom { 
+            from{ bottom:-100px; opacity:0 } 
+            to{ bottom:0; opacity:1 }
+            }
+
+            #myDiv {
+            display: none;
+            text-align: center;
+            }
+        </style>
+
 </head>
 <body>
     <div class="container">
@@ -29,7 +84,7 @@
                         <legend>Book Your Flights Now</legend>
                 
                         <label for="Location">Location</label>
-                        <input id="locationInput" type="text" placeholder="Location Country" onkeyup="this.value = this.value.toUpperCase();">
+                        <input id="locationInput" type="text" placeholder="Location Country" onkeyup="this.value = this.value.toUpperCase();" onfocus="this.value=''">
                         <span class="pure-form-message">This is a required field.</span>
                 
                         <label for="Destination">Destination</label>
@@ -78,10 +133,11 @@
 
                     <div>
                         <label for="DeapartingDate">Currency Rate</label>
-                        <input type="text" id="currency" maxlength="3" size="3" placeholder="EUR" onkeyup="this.value = this.value.toUpperCase();" style="width: 60px;">
+                        <input type="text" id="currency" maxlength="3" size="3" placeholder="EUR" onkeyup="this.value = this.value.toUpperCase();" style="width: 60px;" onfocus="this.value=''">
                     </div>
-
+                    <!-- submit and Reset Buttons -->
                     <button id="submitBtn" type="submit" class="pure-button pure-button-primary submitBtn">Submit</button>
+                    <button id="resetBtn" type="reset" class="pure-button pure-button-primary submitBtn">Reset</button>
                     
                     
 
@@ -89,14 +145,32 @@
                 </fieldset>
             </form>
         </section>
-        
+
+        <!-- Loader -->
+        <div id="loader" class="loader" style="display: none; text-align: justify;"></div>
+
+        <!-- Result Divs Start Here! -->
         <div class="row">
 
             <div class="col s8 offset-s4" id="fromDiv" style="height: 200px; background-color: greenyellow; display: none;">
 
                 <div class="row">
                     <div class="col s9" id="fromInfo">
-                        Date / airport / city name
+                        <div id='departDate1'>
+                            date depart
+                        </div>
+                        <div id='cityFromInfo1'>
+                            City Name From    airpot CODE
+                        </div>
+                        <div id="durationInfo1">
+                            Duration     #stops
+                        </div>
+                        <div id='cityBackInfo1'>
+                            City Name Back    airpot CODE
+                        </div>
+                        <div id='arriveDate1'>
+                            date arrive
+                        </div>
                     </div>
         
                     <div class="col s3" id="fromPrice">
@@ -116,7 +190,21 @@
 
                 <div class="row">
                     <div class="col s9" id="backInfo">
-                        Date / airport / city name
+                        <div id='departDate2'>
+                            date depart
+                        </div>
+                        <div id='cityFromInfo2'>
+                            City Name From    airpot CODE
+                        </div>
+                        <div id="durationInfo2">
+                            Duration     #stops
+                        </div>
+                        <div id='cityBackInfo2'>
+                            City Name Back    airpot CODE
+                        </div>
+                        <div id='arriveDate2'>
+                            date arrive
+                        </div>
                     </div>
         
                     <div class="col s3" id="backPrice">
@@ -130,11 +218,15 @@
 
         <div class="row">
 
-            <div  class="col s2 offset-s10" id="totalPriceDiv" style="height: 50px; background-color: lightcoral; display: none;">
+            <div  class="col s3 offset-s9" id="totalPriceDiv" style="height: 50px; background-color: lightcoral; display: none;">
             
             </div>
 
         </div>
+        <button id="goBackBtn" type="reset" class="pure-button pure-button-primary submitBtn" style="display: none;">Go Back</button>
+
+
+        
 
         <!-- test Divs -->
 
