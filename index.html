@@ -3,190 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheap Flights UI</title>
-        <!-- materialize.css library -->
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <!-- awesome font library -->
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <!-- pure.css library -->
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <title>FLYFORDABLE</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- materialize.css library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- awesome font library -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="card-panel teal lighten-2"> 
-                <h1 class="font-weight-bold">Cheap Flights<i class="fas fa-plane-departure"></i></h1>
-            </div>
-        </header>
-        
-        <section id="mainPage">
-            <!-- section to select location and destination -->
-            <div>
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
-                        <legend>Book Your Flights Now</legend>
 
-                        <label for="Name">Name</label>
-                        <input id="nameInput" type="text" placeholder="e.g Jane Doe">
-                        <span class="pure-form-message">This is a required field.</span>
-                
-                        <label for="Location">Location</label>
-                        <input id="locationInput" type="text" placeholder="Location Country" onkeyup="this.value = this.value.toUpperCase();" onfocus="this.value=''">
-                        <span class="pure-form-message">This is a required field.</span>
-                
-                        <label for="Destination">Destination</label>
-                        <input id="destinationInput" type="text" placeholder="Destination Country" onkeyup="this.value = this.value.toUpperCase();">
-                        <span class="pure-form-message">This is a required field.</span>
-                    </fieldset>
-                </form>
-            </div>
-        </section>
-        
-        <section id="mainPage2">
-            <form class="pure-form pure-form-stacked">
-                <fieldset>
-                    <legend>Select Dates</legend>
+    <header>
+        <div class="navbar-fixed">
+            <nav>
+              <div class="nav-wrapper">
+                <a href="#!" class="brand-logo center-align">FLYFORDABLE</a>
+              </div>
+            </nav>
+        </div>
+    </header>
 
-                    <div>
-                        <label for="DeapartingDate">Departing Date</label>
-
-                        <form>
-                            <div class="input-field">
-                                <input type="text" id="departingInput" class="datepicker" placeholder="mm/dd/yyyy">
+    <section>
+        <div id="booking"  class="section">
+            <div class="section-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s6 14 offset-14">
+                            <div class="card">
+                               
+                                <div class="card-content">
+                                    <div class="form-field">
+                                        <label for="name">Name:</label>
+                                        <input type="text" id="nameInput" placeholder="Jane Doe">
+                                    </div>
+            
+                                    <div class="form-field">
+                                        <label for="name">Flying From:</label>
+                                        <input type="text" id="nameInput" placeholder="airport code">
+                                    </div>
+            
+                                    <div class="form-field">
+                                        <label for="name">Flying To:</label>
+                                        <input type="text" id="nameInput" placeholder="airport code">
+                                    </div>
+                                    <hr>
+            
+                                    <div class="form-field">
+                                        <label for="name">Deaparting Date:</label>
+                                        <input type="date" id="departingInput" placeholder="mm/dd/yyyy">
+                                    </div>
+            
+                                    <div>
+                                        <label>
+                                            <input type="checkbox" id="checkbox"/>
+                                            <span>Round Trip</span>
+                                        </label>
+                                    </div>
+            
+                                    <div class="form-field">
+                                        <label for="name">Returning Date:</label>
+                                        <input type="date" id="returnungInput" placeholder="mm/dd/yyyy">
+                                    </div>
+            
+                                    <div class="form-field">
+                                        <label for="name">Currency: </label>
+                                        <input type="text" id="currency" maxlength="3" size="3" placeholder="EUR" onkeyup="this.value = this.value.toUpperCase();" style="width: 60px;" onfocus="this.value=''">
+                                    </div>
+            
+                                    <!-- submit and Reset Buttons -->
+                                    <div class="form-field center-align">
+                                        <button id="submitBtn" type="submit" class="btn-large blue">Submit</button>
+                                        <button id="resetBtn" type="reset" class="btn-large blue">Reset</button>
+                                    </div>
+                                </div>
                             </div>
-                        </form>
-                        
-                        
-                        <br>
-                        
-                        <label>
-                            <input type="checkbox" id="checkbox"/>
-                            <span>Round Trip</span>
-                        </label>
-                        
-                    </div>
-
-                    <br>
-
-                    <div id="returnDateDiv" style="display: none;">
-                        <label for="ReturningDate">Returning Date</label>
-                        <input type="text" id="returningInput" class="datepicker" placeholder="mm/dd/yyyy">
-                    </div>
-
-                    <br>
-                    <br>
-
-                    <legend>Select Currency</legend>
-
-                    <div>
-                        <label for="DeapartingDate">Currency Rate</label>
-                        <input type="text" id="currency" maxlength="3" size="3" placeholder="EUR" onkeyup="this.value = this.value.toUpperCase();" style="width: 60px;" onfocus="this.value=''">
-                    </div>
-                    <!-- submit and Reset Buttons -->
-                    <button id="submitBtn" type="submit" class="pure-button pure-button-primary submitBtn">Submit</button>
-                    <button id="resetBtn" type="reset" class="pure-button pure-button-primary submitBtn">Reset</button>
-                    
-                    
-
-                    
-                </fieldset>
-            </form>
-        </section>
-
-        <!-- Loader -->
-        <div id="loader" class="loader" style="display: none; text-align: justify;"></div>
-
-        <!-- Result Divs Start Here! -->
-        <div class="row">
-
-            <div class="col s8 offset-s4" id="fromDiv" style="height: 200px; background-color: greenyellow; display: none;">
-
-                <div class="row">
-                    <div class="col s9" id="fromInfo">
-                        <div id='departDate1'>
-                            date depart
                         </div>
-                        <div id='cityFromInfo1'>
-                            City Name From    airpot CODE
+                        <div id="rev-message" class="col s6 14 offset-14">
+                            <h1>BOOK YOUR FLIGHT NOW</h1>
+                            <p>Book both your international and national economcy flights at afforble prices.</p>
                         </div>
-                        <div id="durationInfo1">
-                            Duration     #stops
-                        </div>
-                        <div id='cityBackInfo1'>
-                            City Name Back    airpot CODE
-                        </div>
-                        <div id='arriveDate1'>
-                            date arrive
-                        </div>
-                    </div>
-        
-                    <div class="col s3" id="fromPrice">
-        
                     </div>
                 </div>
-    
-            </div>
-
+            </div>   
         </div>
-
-        
-
-        <div class="row">
-
-            <div class="col s8 offset-s4" id="returnDiv" style="height: 200px; background-color: yellow; display: none;">
-
-                <div class="row">
-                    <div class="col s9" id="backInfo">
-                        <div id='departDate2'>
-                            date depart
-                        </div>
-                        <div id='cityFromInfo2'>
-                            City Name From    airpot CODE
-                        </div>
-                        <div id="durationInfo2">
-                            Duration     #stops
-                        </div>
-                        <div id='cityBackInfo2'>
-                            City Name Back    airpot CODE
-                        </div>
-                        <div id='arriveDate2'>
-                            date arrive
-                        </div>
-                    </div>
-        
-                    <div class="col s3" id="backPrice">
-        
-                    </div>
-                </div>
-
-            </div>
-    
-        </div>
-
-        <div class="row">
-
-            <div  class="col s3 offset-s9" id="totalPriceDiv" style="height: 50px; background-color: lightcoral; display: none;">
-            
-            </div>
-
-        </div>
-        <button id="goBackBtn" type="reset" class="pure-button pure-button-primary submitBtn" style="display: none;">Go Back</button>
-
-
-        
-
-        <!-- test Divs -->
-
-        <br>
-        <div id="print">
-            
-        </div>
-    </div>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="script.js"></script>
-
+    </section>
 </body>
 </html>

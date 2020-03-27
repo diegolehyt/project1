@@ -96,7 +96,7 @@ body {
 }
 
 .flight-card-1 {
-  width: 600px;
+  width: 100%;
   height: 550px;
   border-radius: 35px;
   margin: 10px auto;
@@ -130,18 +130,6 @@ body {
   top: 50%;
   left: 0;
   transform: translateY(-50%) translateX(-50%);
-}
-
-.flight-card--header:after {
-  content: '';
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background: #fff;
-  border-radius: 50px;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%) translateX(50%);
 }
 
 .flight-card--header-logo {
