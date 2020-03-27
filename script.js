@@ -2,6 +2,8 @@
 //----------------------------------------/ project 1 - group 2 /--------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------
 
+
+
 //Local Storage SetUp 
 if (localStorage.getItem('locationFromInput') !== null && localStorage.getItem('currencyInput') !== null ){
    let Pcity = localStorage.getItem('locationFromInput');
@@ -45,7 +47,9 @@ checkbox.addEventListener( 'change', function() {
 document.getElementById('submitBtn').addEventListener('click', function (event) {
 
     // Loader
+    let footer = document.getElementById("footer");
     let loader = document.getElementById('loader');
+    footer.style.display = 'none';
     loader.style.display = 'block';
 
     event.preventDefault()
@@ -125,7 +129,9 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
         .then(function (Fdata) {
 
             //--------------------------------------   Getting all "Result boxes" from the DOM   -------------------------------------------------
-            let CRdiv = document.getElementById('print');
+            //Name Input
+            let pInput = document.getElementById("pInput").value;
+            let totalPriceF = document.getElementById("totalPriceF");
             //Prices DOM
             let fromPriceDiv = document.getElementById('fromPrice');
             let backPriceDiv = document.getElementById('backPrice');
@@ -136,12 +142,20 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
             let durationInfo1 = document.getElementById('durationInfo1');
             let cityBackInfo1 = document.getElementById('cityBackInfo1');
             let arriveDate1 = document.getElementById('arriveDate1');
+
+            let cityFromCode1 = document.getElementById('cityFromCode1');
+            let cityBackCode1 = document.getElementById('cityBackCode1');
+            let pFrom = document.getElementById('pFrom');
             //Return Flight
             let departDate2 = document.getElementById('departDate2');
             let cityFromInfo2 = document.getElementById('cityFromInfo2');
             let durationInfo2 = document.getElementById('durationInfo2');
             let cityBackInfo2 = document.getElementById('cityBackInfo2');
             let arriveDate2 = document.getElementById('arriveDate2');
+
+            let cityFromCode2 = document.getElementById('cityFromCode2');
+            let cityBackCode2 = document.getElementById('cityBackCode2');
+            let pBack = document.getElementById('pBack');
 
             //---------------------------------------------------------------------------------------------------------------
             
@@ -180,6 +194,9 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
             let stopsFrom = JSON.stringify(Fdata.data[0].route.length);
             let cityNameBack = JSON.stringify(Fdata.data[0].cityTo);
             let df = Math.round((JSON.stringify(Fdata.data[0].duration.total) / 3600) / 24);
+
+            let countryFrom = JSON.stringify(Fdata.data[0].countryFrom.name);
+            let countryBack = JSON.stringify(Fdata.data[0].countryTo.name);
              
 
             //price variables 
@@ -270,28 +287,37 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
                     //---------------------------------------------   PRINT BOXES RESULTS  --------------------------------------------------
                     //CRdiv.textContent = currencyRate; //print currency rate test
                     //Prices Results
-                    fromPriceDiv.textContent = 'DEPART Price: ' + finalPriceFrom.toFixed(2) + ' ' + currency;
-                    backPriceDiv.textContent = 'RETURN Price: ' + finalPriceBack.toFixed(2) + ' ' + currency;
-                    totalPriceDiv.textContent = 'TOTAL Price: ' + finalPrice.toFixed(2) + ' ' + currency;
+                    fromPriceDiv.textContent = finalPriceFrom.toFixed(2) + ' ' + currency;
+                    backPriceDiv.textContent = finalPriceBack.toFixed(2) + ' ' + currency;
+                    totalPriceF.textContent = finalPrice.toFixed(2) + ' ' + currency;
 
                     //ONE WAY TRIP--------------------
                     departDate1.textContent = dayFrom + '/' + monthFrom;
-                    cityFromInfo1.textContent = cityNameFrom + ' ' + locationFrom;
+                    cityFromInfo1.textContent = cityNameFrom + ', ' + countryFrom;
                     durationInfo1.textContent = durationFrom + ' ' + stopsFrom;
-                    cityBackInfo1.textContent = cityNameBack + ' ' + locationTo;
+                    cityBackInfo1.textContent = cityNameBack + ' ' + countryBack;
+
+                    cityFromCode1.textContent = locationFrom;
+                    cityBackCode1.textContent = locationTo;
+                    pFrom.textContent = pInput;
                     //date From depart
                     arriveDate1.textContent = (parseInt(dayFrom) + df) + '/' + monthFrom;
 
                     //ROUND TRIP-----------------------
                     departDate2.textContent = dayTo + '/' + monthTo;
-                    cityFromInfo2.textContent = cityNameBack + ' ' + locationTo;
+                    cityFromInfo2.textContent = cityNameBack + ' ' + countryBack;
                     durationInfo2.textContent = durationBack + ' ' + stopsBack;
-                    cityBackInfo2.textContent = cityNameFrom + ' ' + locationFrom;
+                    cityBackInfo2.textContent = cityNameFrom + ' ' + countryFrom;
+
+                    cityFromCode2.textContent = locationTo;
+                    cityBackCode2.textContent = locationFrom;
+                    pBack.textContent = pInput;
                     //date From depart
                     arriveDate2.textContent = (parseInt(dayTo) + db) + '/' + monthTo;  
 
-                    //Loader Display
+                    //Loader Display ----------------------------------------------------------
                     loader.style.display = 'none';
+                    footer.style.display = 'block';
                     
                     //print boxes display
                     let fromDiv = document.getElementById('fromDiv');
@@ -305,10 +331,10 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
                     }
                     else{
                         finalPrice = finalPriceFrom;
-                        totalPriceDiv.textContent = 'TOTAL Price: ' + finalPrice.toFixed(2) + ' ' + currency; //problem here!
+                        totalPriceF.textContent = finalPrice.toFixed(2) + ' ' + currency; 
                     }
 
-                    //Local Storage
+                    //Local Storage----------------------------------------------------------------
                     locationFrom = localStorage.setItem('locationFromInput', locationFrom);
                     currency = localStorage.setItem('currencyInput', currency);
 
@@ -319,6 +345,8 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
 
                         location.reload(true);
                     })
+
+
 
 
 
