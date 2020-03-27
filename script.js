@@ -299,8 +299,13 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
                     fromDiv.style.display = "block";
                     totalPriceDiv.style.display = "block";
 
-                    if (finalPriceBack != 0){
+                    if (dateFrom != dateTo){
+
                         returnDiv.style.display = "block";
+                    }
+                    else{
+                        finalPrice = finalPriceFrom;
+                        totalPriceDiv.textContent = 'TOTAL Price: ' + finalPrice.toFixed(2) + ' ' + currency; //problem here!
                     }
 
                     //Local Storage
