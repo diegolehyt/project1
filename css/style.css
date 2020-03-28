@@ -407,7 +407,6 @@ h4 {
 
 #mLeft{
   margin-left: 35px;
-  
 }
 
 .flight-card-title{
@@ -419,9 +418,9 @@ h4 {
   display: inline-block;
 }
 
-#ticket-info{
-  margin-left: 35px;
-}
+/* #ticket-info{
+  margin-left: px;
+} */
 
 .vertical_dotted_line
 {
@@ -436,4 +435,21 @@ h4 {
 #ainfo{
   margin-top: 10px;
 
+}
+
+#header-sec2{
+  font-size: 12px;
+}
+
+.priceInput{
+  font-size: 20px;
+}
+
+#plane{
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.margin1{
+  font-size: 18px;
 }

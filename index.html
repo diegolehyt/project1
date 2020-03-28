@@ -99,15 +99,18 @@
                         <div class="col s12">
                           <div id="flight-card" class="card">
                             <div id="flight-header" class="card-header white-text">
-                              <div class="card-title">
+                              <div id= "header-sec2" class="card-title">
                                   <h4 class="flight-card-title">Flight Information</h4>
                                   <hr>
                                   <div class="row">
-                                    <div id="mLeft" class="col s5 left-align">
+                                    <div id="mLeft" class="col s4 center-align">
                                         <span id="pFrom" class="passName">Oluwatoyin Balogun</span>
                                     </div>
-                                    <div class="col s5 right-align">
-                                          <strong><span class="priceInput">$333</span></strong>
+                                    <div class="col s4 center-align">
+                                        <span># of stops: direct flight <span class="numStops"></span></span>
+                                    </div>
+                                    <div class="col s3 center-align">
+                                          <span class="priceInput">$333</span>
                                     </div>
                                   </div>
                               </div>
@@ -121,8 +124,8 @@
                                       </div>
                                   </div>
                                   
-                                  <div class="col s2 15 center-align">
-                                    <i class="fas fa-plane plane-icon"></i>
+                                  <div class="col s1 15 center-align">
+                                    <i id="plane" class="fas fa-plane plane-icon"></i>
                                   </div> 
                                   
                                   <div class="col s5 m5 l5 center-align">
@@ -130,12 +133,34 @@
                                         <h4 class="margin">SFO</h4>
                                         <p class="ultra-small">San Francisco, USA</p>
                                     </div>
-                                </div>
+                                 </div>
                               </div>
                             
                               
                               <div id="ticket-info" class="row">
-                                <div id="ainfo" class="col s6 m4 l5">
+                                <div class="col s5 m4 10 center-align">
+                                    <div class="flight-state">
+                                        <h4 class="margin1">DEPART:</h4>
+                                        <p  class="dDate">*insert #</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col s2 m4 10 center-align">
+                                    <div class="flight-state">
+                                        <h4 class="margin1">DURATION:</h4>
+                                        <p class="duration">*insert #</p>
+                                    </div>
+                                </div> 
+                                
+                                <div class="col s5 m4 l0 center-align">
+                                  <div class="flight-state">
+                                      <h4 class="margin1">ARRIVE:</h4>
+                                      <p  class="aDate">*insert #</p>
+                                  </div>
+                               </div>
+
+                                
+                                <!-- <div id="ainfo" class="col s6 m4 l5">
                                     <div class="flight-info">
                                         <p>Departure:<span class="dDate">*insert date</span></p>
                                         <p>Number of Stops:<span class="numStops">*insert #</span></p>
@@ -149,7 +174,7 @@
                                       <p>Number of Stops:<span class="numStops">*insert #</span></p>
                                       <p>Duration:<span class="duration"></span>*insert #</p>
                                     </div>
-                               </div>
+                               </div> -->
                              </div>
                             </div>
                         </div>
