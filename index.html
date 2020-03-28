@@ -202,10 +202,13 @@
                       <h4 class="flight-card-title">Flight Information</h4>
                       <hr>
                       <div class="row">
-                        <div id="mLeft" class="col s5 left-align">
+                        <div id="mLeft" class="col s4 center-align">
                             <span id="pFrom" class="passName">Oluwatoyin Balogun</span>
                         </div>
-                        <div class="col s5 right-align">
+                        <div class="col s4 center-align">
+                            <span># of stops:<span id="stops1" class="numStops">*insert</span></span>
+                        </div>
+                        <div class="col s3 center-align">
                               <strong><span class="priceInput" id="fromPrice">$333</span></strong>
                         </div>
                       </div>
@@ -217,7 +220,7 @@
                           <div class="flight-state">
                               <h4 class="margin" id='cityFromCode1'>LDN</h4>
                               <p class="ultra-small" id='cityFromInfo1'>London, England</p>
-                              <p>Departure:<span class="dDate" id='departDate1'>*insert date</span></p>
+                              <!-- <p>Departure:<span class="dDate" id='departDate1'>*insert date</span></p> -->
                           </div>
                       </div>
                       
@@ -229,25 +232,34 @@
                         <div class="flight-state">
                             <h4 class="margin" id='cityBackCode1'>SFO</h4>
                             <p class="ultra-small" id='cityBackInfo1'>San Francisco, USA</p>
-                            <p>Arrival:<span class="aDate" id='arriveDate1'>*insert date</span></p>
+                            <!-- <p>Arrival:<span class="aDate" id='arriveDate1'>*insert date</span></p> -->
                         </div>
                     </div>
                   </div>
                 
                   
                   <div id="ticket-info" class="row">
-                    <div id="ainfo" class="col s12 m12 l5">
-                        <div class="flight-info">
-                            
-                            <p>Number of Stops:<span class="numStops" id="stops1">*insert #</span></p>
-                            <p>Duration:<span class="duration" id="durationInfo1"></span></p>
-                            
+                    <div class="col s5 m4 10 center-align">
+                        <div class="flight-state">
+                            <h4 class="margin1">DEPART:</h4>
+                            <p   id="departDate1" class="dDate">*insert #</p>
                         </div>
+                    </div>
+                    
+                    <div class="col s2 m4 10 center-align">
+                        <div class="flight-state">
+                            <h4 class="margin1">DURATION:</h4>
+                            <p id="durationInfo1" class="duration">*insert #</p>
+                        </div>
+                    </div> 
+                    
+                    <div class="col s5 m4 l0 center-align">
+                      <div class="flight-state">
+                          <h4 class="margin1">ARRIVE:</h4>
+                          <p id="arriveDate1" class="aDate">*insert #</p>
+                      </div>
                    </div>
-
-               
-                  
-                 </div>
+                </div>
                 </div>
             </div>
        </div>
@@ -262,10 +274,13 @@
                   <h4 class="flight-card-title">Flight Information</h4>
                   <hr>
                   <div class="row">
-                    <div id="mLeft" class="col s5 left-align">
+                    <div id="mLeft" class="col s4 center-align">
                         <span class="passName" id="pBack">Oluwatoyin Balogun</span>
                     </div>
-                    <div class="col s5 right-align">
+                    <div class="col s4 center-align">
+                        <span># of stops:<span id="stops2" class="numStops">*insert</span></span>
+                    </div>
+                    <div class="col s3 center-align">
                           <strong><span class="priceInput" id="backPrice">$333</span></strong>
                     </div>
                   </div>
@@ -277,7 +292,7 @@
                       <div class="flight-state">
                           <h4 class="margin" id='cityFromCode2'>LDN</h4>
                           <p class="ultra-small" id='cityFromInfo2'>London, England</p>
-                          <p>Departure:<span class="dTime" id='departDate2'>*insert time</span></p>
+                          <!-- <p>Departure:<span class="dTime" id='departDate2'>*insert time</span></p> -->
                       </div>
                   </div>
                   
@@ -289,23 +304,34 @@
                     <div class="flight-state">
                         <h4 class="margin" id='cityBackCode2'>SFO</h4>
                         <p class="ultra-small" id='cityBackInfo2'>San Francisco, USA</p>
-                        <p>Arrival:<span class="aTime" id='arriveDate2'>*insert time</span></p>
+                        <!-- <p>Arrival:<span class="aTime" id='arriveDate2'>*insert time</span></p> -->
                     </div>
                 </div>
               </div>
             
               
               <div id="ticket-info" class="row">
-                  <div id="ainfo" class="col s12 m12 l5">
-                      <div class="flight-info">
-                          
-                          <p>Number of Stops:<span class="numStops" id="stops2">*insert #</span></p>                   
-                          <p>Duration:<span class="duration" id="durationInfo2"></span></p>
-                          
-                      </div>
-                 </div>
-
+                <div class="col s5 m4 10 center-align">
+                    <div class="flight-state">
+                        <h4 class="margin1">DEPART:</h4>
+                        <p id="departDate2" class="dDate">*insert #</p>
+                    </div>
+                </div>
+                
+                <div class="col s2 m4 10 center-align">
+                    <div class="flight-state">
+                        <h4 class="margin1">DURATION:</h4>
+                        <p id="durationInfo2" class="duration">*insert #</p>
+                    </div>
+                </div> 
+                
+                <div class="col s5 m4 l0 center-align">
+                  <div class="flight-state">
+                      <h4 class="margin1">ARRIVE:</h4>
+                      <p id="arriveDate2" class="aDate">*insert #</p>
+                  </div>
                </div>
+            </div>
             </div>
         </div>
    </div>
