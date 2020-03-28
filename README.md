@@ -2,11 +2,7 @@
 
 # "Flydable"(Cheap Flight Finder App)
 
-![gif](images/0.gif)
-
-
-
-![Main Page](images/1.png)
+![Main Page](images/finalDemo.png)
 
 # User Story:
     AS A traveller,
