@@ -49,7 +49,9 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
     // Loader
     let footer = document.getElementById("footer");
     let loader = document.getElementById('loader');
-    footer.style.display = 'none';
+    let titleDiv = document.getElementById("titleDiv");
+    titleDiv.style.display = "none";
+    footer.style.marginTop = '500px';
     loader.style.display = 'block';
 
     event.preventDefault()
@@ -142,6 +144,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
             let durationInfo1 = document.getElementById('durationInfo1');
             let cityBackInfo1 = document.getElementById('cityBackInfo1');
             let arriveDate1 = document.getElementById('arriveDate1');
+            let stops1 = document.getElementById('stops1');
 
             let cityFromCode1 = document.getElementById('cityFromCode1');
             let cityBackCode1 = document.getElementById('cityBackCode1');
@@ -152,6 +155,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
             let durationInfo2 = document.getElementById('durationInfo2');
             let cityBackInfo2 = document.getElementById('cityBackInfo2');
             let arriveDate2 = document.getElementById('arriveDate2');
+            let stops2 = document.getElementById('stops2');
 
             let cityFromCode2 = document.getElementById('cityFromCode2');
             let cityBackCode2 = document.getElementById('cityBackCode2');
@@ -191,7 +195,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
             //City Variables
             let cityNameFrom = JSON.stringify(Fdata.data[0].cityFrom);
             let durationFrom = JSON.stringify(Fdata.data[0].fly_duration);
-            let stopsFrom = JSON.stringify(Fdata.data[0].route.length);
+            let stopsFrom = (JSON.stringify(Fdata.data[0].route.length)) - 1;
             let cityNameBack = JSON.stringify(Fdata.data[0].cityTo);
             let df = Math.round((JSON.stringify(Fdata.data[0].duration.total) / 3600) / 24);
 
@@ -260,7 +264,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
 
                     //flight duration variables 
                     let durationBack = JSON.stringify(Fdata.data[0].fly_duration);
-                    let stopsBack = JSON.stringify(Fdata.data[0].route.length);
+                    let stopsBack = (JSON.stringify(Fdata.data[0].route.length)) - 1;
                     let db = Math.round((JSON.stringify(Fdata.data[0].duration.total) / 3600) / 24);
 
                     //price Back variables 
@@ -293,9 +297,13 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
 
                     //ONE WAY TRIP--------------------
                     departDate1.textContent = dayFrom + '/' + monthFrom;
-                    cityFromInfo1.textContent = cityNameFrom + ', ' + countryFrom;
-                    durationInfo1.textContent = durationFrom + ' ' + stopsFrom;
-                    cityBackInfo1.textContent = cityNameBack + ' ' + countryBack;
+                    cityFromInfo1.textContent = " " + cityNameFrom.replace(/['"]+/g, '') + ', ' + countryFrom.replace(/['"]+/g, '');
+                    durationInfo1.textContent = " " + durationFrom.replace(/['"]+/g, '');
+                    cityBackInfo1.textContent = " " + cityNameBack.replace(/['"]+/g, '') + ', ' + countryBack.replace(/['"]+/g, '');
+                    if (stopsFrom == 0){
+                        stopsFrom = " Direct Flight"
+                    }
+                    stops1.textContent = stopsFrom;
 
                     cityFromCode1.textContent = locationFrom;
                     cityBackCode1.textContent = locationTo;
@@ -305,9 +313,13 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
 
                     //ROUND TRIP-----------------------
                     departDate2.textContent = dayTo + '/' + monthTo;
-                    cityFromInfo2.textContent = cityNameBack + ' ' + countryBack;
-                    durationInfo2.textContent = durationBack + ' ' + stopsBack;
-                    cityBackInfo2.textContent = cityNameFrom + ' ' + countryFrom;
+                    cityFromInfo2.textContent = " " + cityNameBack.replace(/['"]+/g, '') + ', ' + countryBack.replace(/['"]+/g, '');
+                    durationInfo2.textContent = " " + durationBack.replace(/['"]+/g, '');
+                    cityBackInfo2.textContent = " " + cityNameFrom.replace(/['"]+/g, '') + ', ' + countryFrom.replace(/['"]+/g, '');
+                    if (stopsBack == 0){
+                        stopsBack = " Direct Flight"
+                    }
+                    stops2.textContent = stopsBack;
 
                     cityFromCode2.textContent = locationTo;
                     cityBackCode2.textContent = locationFrom;
@@ -317,7 +329,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
 
                     //Loader Display ----------------------------------------------------------
                     loader.style.display = 'none';
-                    footer.style.display = 'block';
+                    footer.style.marginTop = '100px';
                     
                     //print boxes display
                     let fromDiv = document.getElementById('fromDiv');
@@ -346,7 +358,9 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
                         location.reload(true);
                     })
 
+                   
 
+                   
 
 
 
@@ -358,6 +372,5 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
 
     
 })
-//remove classes from materialize in order to fix calendar
-//document.querySelector('.select-dropdown').style.display = "none";
+
 

@@ -2,11 +2,7 @@
 
 # "Flydable"(Cheap Flight Finder App)
 
-![gif](images/0.gif)
-
-
-
-![Main Page](images/1.png)
+![Main Page](images/finalDemo.png)
 
 # User Story:
     AS A traveller,
@@ -69,19 +65,15 @@
 
   step 4
 
-  ![tickets](images/3.png)
+  ![tickets](images/10.png)
 
   - The app will display one or two "flight Info tickets" depending on your prior choice (one way or round trip).
 
-  ![ticket glosary](images/2.png)
-
-  - "flight Info" glossary.
-
-  ![total](images/2.png)
+  ![total](images/11.png)
 
   - Total Price.
 
-  ![go back](images/2.png)
+  ![go back](images/12.png)
 
   - Click ON "Go Back Button" to return to the main page.
 

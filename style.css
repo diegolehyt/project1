@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 
+body {
+    background-image: url(images/img1.jpg);
+}
+/*-------------------------- Page Styles -------------------*/
 ::after, ::before{
   box-sizing: border-box;
 }
 
 #booking{
   font-family: 'Montserrat', sans-serif;
-  background-image: url(file:///C:/Users/balog/Desktop/project1/img1.jpg);
+  background-image: url(images/img1.jpg);
   background-size: cover;
   background-position: center;
-  position: relative;
-  height: 160vh;
 }
 
 #booking::before {
@@ -22,10 +24,11 @@
 	bottom: 0;
 	top: 0;
 	background: rgba(47, 103, 177, 0.6);
-} 
+}
 
 .section{
- 
+  position: relative;
+  height: 100vh;
 }
 
 .section .section-center{
@@ -161,7 +164,7 @@ body{
   margin: -75px 0 0 -75px;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid teal;
+  border-top: 16px solid midnightblue;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite;
@@ -205,6 +208,15 @@ body{
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400');
 
 
+
+
+body {
+/* display: flex; */
+align-items: center;
+justify-content: center;
+font-family: 'Roboto', sans-serif;
+}
+
 .top-header{
 max-width: 100%; 
 font-size: 22px; 
@@ -217,9 +229,10 @@ height: 550px;
 border-radius: 35px;
 margin: 10px auto;
 box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+display: none;
 }
 .flight-card-2 {
-  width: 600px;
+  width: 100%;
   height: 550px;
   border-radius: 35px;
   margin: 10px auto;
@@ -373,13 +386,49 @@ padding: 10px 0 0 0;
 display: block;
 }
 
-#main-page{
-  display: none; 
+/* Date Picker */
+.datepicker-date-display {  
+  background-color: midnightblue;  
 }
-#result-page{
-  /* display: none; */
+.datepicker-table td.is-selected{
+  background-color: midnightblue;
+
+}
+/* .datepicker-table td.is-today {
+    color: midnightblue;
+}
+.datepicker-table td.is-today:active {
+    color: white;
+
+
+} */
+/*Header*/
+.nav-wrapper {
+    background-color: midnightblue;
+}
+/*Footer*/
+#footer {
+  margin-top: 100px;
 }
 
+.page-footer {
+    background-color: midnightblue;
+    position: relative;
+    bottom: 0px;
+}
+
+/*Buttons*/
+.btn-large {
+    background-color: midnightblue;
+}
+
+
+
+
+/* .picker__day--selected, .picker__day--selected:hover, .picker--    focused       .picker__day--selected  
+{  
+  background-color: red;  
+} */
 #flight-card{
   position: relative;
   margin: 0.5rem 0 1rem 0;
@@ -407,6 +456,7 @@ h4 {
 
 #mLeft{
   margin-left: 35px;
+  
 }
 
 .flight-card-title{
@@ -418,9 +468,9 @@ h4 {
   display: inline-block;
 }
 
-/* #ticket-info{
-  margin-left: px;
-} */
+#ticket-info{
+  margin-left: 35px;
+}
 
 .vertical_dotted_line
 {
@@ -429,14 +479,25 @@ h4 {
 } 
 
 #flight-header{
-  background-color: blue;
+  background-color: midnightblue;
 }
 
 #ainfo{
   margin-top: 10px;
 
 }
+/**/
+#fromDiv{
+  display: none;
 
+}
+#returnDiv{
+  display: none;
+}
+h6 {
+  font-weight: bold;
+  color: midnightblue;
+}
 #header-sec2{
   font-size: 12px;
 }
