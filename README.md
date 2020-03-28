@@ -8,13 +8,11 @@
 
 ![Main Page](images/1.png)
 
-# User History:
-    as a frequent traveler, 
-    I want to find cheap flights
-    I want to search for the cheapest flights to places 
-    with the cost converted to the currency of the country 
-    I am in currently (my geo-location),
-    as a convenient time saver
+# User Story:
+    AS A traveller,
+    I WANT to find affordable economy flights
+    to and from locations around the world in different currencies,
+    So that I can travel more frequently while being economical.
 
 
 # Instruction 
@@ -71,26 +69,22 @@
 
   step 4
 
-  ![tickets](images/3.png)
+  ![tickets](images/10.png)
 
   - The app will display one or two "flight Info tickets" depending on your prior choice (one way or round trip).
 
-  ![ticket glosary](images/2.png)
-
-  - "flight Info" glosary.
-
-  ![total](images/2.png)
+  ![total](images/11.png)
 
   - Total Price.
 
-  ![go back](images/2.png)
+  ![go back](images/12.png)
 
   - Click ON "Go Back Button" to return to the main page.
 
 
 # Description
 
-"Flydable" (Cheap Flight Finder) is an app that will help you find the cheapest flight tickets which will provide results in the currency of your choice. This app will run in the browser and feature dynamically updated HTML and CSS powered by JavaScript plus the data from the APIs "Skypicker" and "Fixer". It also feature a clean and polished user interface and is responsive, ensuring that it adapts to multiple screen sizes. like: CellPhones "640px", Tablets "768px", and Laptops "980px".
+"Flydable" (Cheap EconomyFlight Finder) is an app that will help you find the cheapest flight tickets which will provide results in the currency of your choice. This app will run in the browser and feature dynamically updated HTML and CSS powered by JavaScript plus the data from the APIs "Skypicker" and "Fixer". It also feature a clean and polished user interface and is responsive, ensuring that it adapts to multiple screen sizes. like: CellPhones "640px", Tablets "768px", and Laptops "980px".
 
 # Details
 

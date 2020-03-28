@@ -164,7 +164,7 @@ body{
   margin: -75px 0 0 -75px;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid teal;
+  border-top: 16px solid midnightblue;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite;
@@ -407,6 +407,10 @@ display: block;
     background-color: midnightblue;
 }
 /*Footer*/
+#footer {
+  margin-top: 100px;
+}
+
 .page-footer {
     background-color: midnightblue;
     position: relative;
@@ -425,3 +429,88 @@ display: block;
 {  
   background-color: red;  
 } */
+#flight-card{
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  border-radius: 2px
+}
+
+.plane-icon{
+  content: "\e722";
+  top: 45%;
+}
+
+h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.passName{
+  font-size: 16px;
+}
+
+#mLeft{
+  margin-left: 35px;
+  
+}
+
+.flight-card-title{
+  margin-left: 35px;
+  font-weight: 400;
+}
+
+.flight-info{
+  display: inline-block;
+}
+
+#ticket-info{
+  margin-left: 35px;
+}
+
+.vertical_dotted_line
+{
+    border-left: 1px dotted black;
+    height: 100px;
+} 
+
+#flight-header{
+  background-color: midnightblue;
+}
+
+#ainfo{
+  margin-top: 10px;
+
+}
+/**/
+#fromDiv{
+  display: none;
+
+}
+#returnDiv{
+  display: none;
+}
+h6 {
+  font-weight: bold;
+  color: midnightblue;
+}
+#header-sec2{
+  font-size: 12px;
+}
+
+.priceInput{
+  font-size: 20px;
+}
+
+#plane{
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.margin1{
+  font-size: 18px;
+}

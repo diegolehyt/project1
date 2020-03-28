@@ -28,20 +28,20 @@
     </header>
     <!-- conteiner here -->
     <div class="container">
-        <div class="row">
-            <div id="rev-message" class="col s6 14 offset-14">
-                <h1>BOOK YOUR FLIGHT NOW</h1>
-                <p>Book both your international and national economcy flights at afforble prices.</p>
+        <div class="row" id="titleDiv">
+            <div id="rev-message" class="col s12 14">
+                <h3 style="font-weight: bold; color: midnightblue;">FIND YOUR FLIGHT NOW</h3>
+                <p style="color: midnightblue;">Find both your international and national economcy flights at afforble prices.</p>
             </div>
         </div>
         <!-- Main Row Form -->
         <div class="row card" id="mainPage"  >
         
-            <form class="col s12 card-content" style="background: rgba(205, 236, 248, 0.76)">
+            <form class="col s12 card-content" style="background: rgba(255, 255, 255, 0.911)">
                 <!--------------------------------- Form starts here ------------------------------------------->
                 <!-- Name Row -->
                 <div class="row">
-                    <legend>Book Your Flights Now</legend>
+                    <h6>Full Name and Airport code</h6>
 
                     <div class="input-field col s12">
                         <label for="name">Name:</label>
@@ -73,7 +73,7 @@
                 </div>
                 <!-- Pick Dates Row -->
                 <div class="row">
-                    <legend>Select Dates</legend>
+                    <h6>Select Dates</h6>
                     <!-- Date From -->
                     <div class="input-field col s6">
                         <label for="name">Deaparting Date:</label>
@@ -89,7 +89,7 @@
                 </div>
                 <!-- currency row -->
                 <div class="row">
-                    <legend>Select Currency</legend>
+                    <h6>Select Currency</h6>
                     <div class="input-field col s12">
                         <label for="name">Currency: </label>
                         <input type="text" id="currency" maxlength="3" size="3" placeholder="EUR" onkeyup="this.value = this.value.toUpperCase();" style="width: 60px;" onfocus="this.value=''">
@@ -190,120 +190,131 @@
         <div id="loader" class="loader" style="display: none; text-align: justify;"></div>
 
        <!-- ---------------------------------------   Result Divs Start Here!  ------------------------------------ -->
-        <div class='flight-card-1' id="fromDiv">
-            <div class='flight-card--header'>
-                <div class='flight-card--header-logo'>
-                    
-                    <span class="top-header">Flight Information</span>
+
+
+        <!---------------------------------------------------- NEW TICKETS ---------------------------------------------------------->
+
+        <div class="row" id="fromDiv">
+            <div class="col s12">
+              <div id="flight-card" class="card">
+                <div id="flight-header" class="card-header white-text">
+                  <div class="card-title">
+                      <h4 class="flight-card-title">Flight Information</h4>
+                      <hr>
+                      <div class="row">
+                        <div id="mLeft" class="col s5 left-align">
+                            <span id="pFrom" class="passName">Oluwatoyin Balogun</span>
+                        </div>
+                        <div class="col s5 right-align">
+                              <strong><span class="priceInput" id="fromPrice">$333</span></strong>
+                        </div>
+                      </div>
+                  </div>
                 </div>
-              
-                <div class='flight-card--header-details'>
-                    <div class='details-passenger'>
-                        <span class='detail--title'>Passenger</span>
-                        <span class='detail--text' id="pFrom">James Macpherson</span>
+                <div class="card-content">
+                  <div class="row flight-state-wrapper">
+                      <div class="col s5 m5 15 center-align">
+                          <div class="flight-state">
+                              <h4 class="margin" id='cityFromCode1'>LDN</h4>
+                              <p class="ultra-small" id='cityFromInfo1'>London, England</p>
+                              <p>Departure:<span class="dDate" id='departDate1'>*insert date</span></p>
+                          </div>
+                      </div>
+                      
+                      <div class="col s2 15 center-align">
+                        <i class="fas fa-plane plane-icon" id="plane"></i>
+                      </div> 
+                      
+                      <div class="col s5 m5 l5 center-align">
+                        <div class="flight-state">
+                            <h4 class="margin" id='cityBackCode1'>SFO</h4>
+                            <p class="ultra-small" id='cityBackInfo1'>San Francisco, USA</p>
+                            <p>Arrival:<span class="aDate" id='arriveDate1'>*insert date</span></p>
+                        </div>
                     </div>
-                    
-                    <div class='details-depart'>
-                        <span class='detail--title'>Departs</span>
-                        <span class='detail--text' id='departDate1'>date depart</span>
-                    </div>
+                  </div>
                 
-                    <div class='details-arrive'>
-                        <span class='detail--title'>Arrives</span>
-                        <span class='detail--text' id='arriveDate1'>Apr 3, 2017</span>
+                  
+                  <div id="ticket-info" class="row">
+                    <div id="ainfo" class="col s12 m12 l5">
+                        <div class="flight-info">
+                            
+                            <p>Number of Stops:<span class="numStops" id="stops1">*insert #</span></p>
+                            <p>Duration:<span class="duration" id="durationInfo1"></span></p>
+                            
+                        </div>
+                   </div>
+
+               
+                  
+                 </div>
+                </div>
+            </div>
+       </div>
+     </div>
+     <!-- Ticket Return -->
+
+     <div class="row" id="returnDiv">
+        <div class="col s12">
+          <div id="flight-card" class="card">
+            <div id="flight-header" class="card-header white-text">
+              <div class="card-title">
+                  <h4 class="flight-card-title">Flight Information</h4>
+                  <hr>
+                  <div class="row">
+                    <div id="mLeft" class="col s5 left-align">
+                        <span class="passName" id="pBack">Oluwatoyin Balogun</span>
                     </div>
+                    <div class="col s5 right-align">
+                          <strong><span class="priceInput" id="backPrice">$333</span></strong>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="row flight-state-wrapper">
+                  <div class="col s5 m5 15 center-align">
+                      <div class="flight-state">
+                          <h4 class="margin" id='cityFromCode2'>LDN</h4>
+                          <p class="ultra-small" id='cityFromInfo2'>London, England</p>
+                          <p>Departure:<span class="dTime" id='departDate2'>*insert time</span></p>
+                      </div>
+                  </div>
+                  
+                  <div class="col s2 15 center-align">
+                    <i class="fas fa-plane plane-icon" id="plane"></i>
+                  </div> 
+                  
+                  <div class="col s5 m5 l5 center-align">
+                    <div class="flight-state">
+                        <h4 class="margin" id='cityBackCode2'>SFO</h4>
+                        <p class="ultra-small" id='cityBackInfo2'>San Francisco, USA</p>
+                        <p>Arrival:<span class="aTime" id='arriveDate2'>*insert time</span></p>
+                    </div>
+                </div>
+              </div>
+            
+              
+              <div id="ticket-info" class="row">
+                  <div id="ainfo" class="col s12 m12 l5">
+                      <div class="flight-info">
+                          
+                          <p>Number of Stops:<span class="numStops" id="stops2">*insert #</span></p>                   
+                          <p>Duration:<span class="duration" id="durationInfo2"></span></p>
+                          
+                      </div>
+                 </div>
+
                </div>
             </div>
-            
-            <div class='flight-card--details'>
-                <div class='bc-from'>
-                    <span class='detail-code' id='cityFromCode1'>YOW</span>
-                    <span class='detail-city' id='cityFromInfo1'>Ottawa, Ontario</span>
-                </div>
-                <div class='bc-plane'>
-                    <img src='https://cdn.onlinewebfonts.com/svg/img_537856.svg'>
-                </div>
-                <div class='bc-to'>
-                    <span class='detail-code' id='cityBackCode1'>JFK</span>
-                    <span class='detail-city' id='cityBackInfo1'>New York, New York</span>
-                </div>
-                <div class='flight-card-details--text'>
-                    <div class='text-left'>
-                        <span class='text-hline'># of Stops</span>
-                        <span class='text-actual' id="durationInfo1">Un-named Airways</span>
-                    </div>
-                    <div class='text-middle'>
-                        <span class='text-hline'>Price</span>
-                        <span class='text-actual' id="fromPrice">$$$</span>
-                    </div>
-                    <div class='text-right'>
-                        <span class='text-hline'>Class</span>
-                        <span class='text-actual mint'>Economy</span>
-                    </div>
-                </div>
-            </div>
         </div>
-    
-
-        <!-- second -->
-        <div class='flight-card-2' id="returnDiv">
-            <div class='flight-card--header'>
-                <div class='flight-card--header-logo'>
-                        
-                    <span class="top-header">Flight Information</span>
-                </div>
-                
-                <div class='flight-card--header-details'>
-                    <div class='details-passenger'>
-                        <span class='detail--title'>Passenger</span>
-                        <span class='detail--text' id="pBack" >James Macpherson</span>
-                    </div>
-                    
-                    <div class='details-depart'>
-                        <span class='detail--title'>Departs</span>
-                        <span class='detail--text' id='departDate2'>Apr 2, 2017</span>
-                    </div>
-                
-                    <div class='details-arrive'>
-                        <span class='detail--title'>Arrives</span>
-                        <span class='detail--text' id='arriveDate2'>Apr 3, 2017</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class='flight-card--details'>
-                <div class='bc-from'>
-                    <span class='detail-code' id='cityFromCode2'>YOW</span>
-                    <span class='detail-city' id='cityFromInfo2'>Ottawa, Ontario</span>
-                </div>
-                <div class='bc-plane'>
-                    <img src='https://cdn.onlinewebfonts.com/svg/img_537856.svg'>
-                </div>
-                <div class='bc-to'>
-                    <span class='detail-code' id='cityBackCode2'>JFK</span>
-                    <span class='detail-city' id='cityBackInfo2'>New York, New York</span>
-                </div>
-                <div class='flight-card-details--text'>
-                    <div class='text-left'>
-                        <span class='text-hline'># of Stops</span>
-                        <span class='text-actual' id="durationInfo2">Un-named Airways</span>
-                    </div>
-                    <div class='text-middle'>
-                        <span class='text-hline'>Price</span>
-                        <span class='text-actual' id="backPrice">$$$</span>
-                    </div>
-                    <div class='text-right'>
-                        <span class='text-hline'>Class</span>
-                        <span class='text-actual mint'>Economy</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+   </div>
+  </div>
 
         
-
         <!-- total card -->
-        <div class="col s12 m7" id="totalPriceDiv" style="display: none;">
+        
+        <div class="col s12 m12" id="totalPriceDiv" style="display: none;">
             <div class="card horizontal">
                 <div class="card-image">
                     <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/blog/2017Q4/7-step-sales-process/7-step-sales-process-header@2x.png">
@@ -330,24 +341,23 @@
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
-              <h5 class="white-text">Footer Content</h5>
-              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              <h5 class="white-text">Enjoy finding your new Trip</h5>
+              <p class="grey-text text-lighten-4">The best flight engine with a unique algorithm to help you find the cheapest rout.</p>
             </div>
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Links</h5>
               <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Diego Lehyt - github.com/diegolehyt</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Oluwatoyin Balogun  github.com/Toyinbalogun</a></li>
+
               </ul>
             </div>
           </div>
         </div>
         <div class="footer-copyright">
           <div class="container">
-          © 2014 Copyright Text
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            FLY4DABLE © 2020 Copyright
+          <a class="grey-text text-lighten-4 right" href="#!">www.Fly4dable.com</a>
           </div>
         </div>
     </footer>
