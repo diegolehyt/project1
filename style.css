@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+
+body {
+    background-image: url(images/img1.jpg);
+}
+/*-------------------------- Page Styles -------------------*/
+::after, ::before{
+  box-sizing: border-box;
+}
+
+#booking{
+  font-family: 'Montserrat', sans-serif;
+  background-image: url(images/img1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+#booking::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: rgba(47, 103, 177, 0.6);
+}
+
+.section{
+  position: relative;
+  height: 100vh;
+}
+
+.section .section-center{
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+div{
+  display: block;
+}
+
+body{
+  font-size: 14px;
+  line-height: 1.43;
+  color: black;
+}
+
+.container{
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#rev-message{
+  color: #fff;
+  font-weight: 700;
+}
+
+.brand-logo{
+  font-weight: bold;
+  margin-left: 90px;
+}
+
+.nav-wrapper{
+  background-color:		#696969;
+}
+
+/* ======================================================================================= */
+/* Center the loader */
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid teal;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+  }
+
+  /* Add animation to "page content" */
+  .animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+  }
+
+  @-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+  }
+
+  @keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+  }
+
+  #myDiv {
+  display: none;
+  text-align: center;
+  }
+/* ======================================================================================= */
+
+
+/* css for result page */
+.city-info{
+  display: inline;
+}
+
+.body{
+  background-image: linear-gradient(rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),url(https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9);
+  background-position: center;
+  color: white;
+}
+
+.submitBtn{
+  color: black;
+}
+
+.flight-info {
+  color: black;
+}
+
+.total-card{
+  color: black;
+}
+
+.oneway{
+  color:white;
+}
+
+/* Center the loader */
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid midnightblue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400');
+
+
+
+
+body {
+/* display: flex; */
+align-items: center;
+justify-content: center;
+font-family: 'Roboto', sans-serif;
+}
+
+.top-header{
+max-width: 100%; 
+font-size: 22px; 
+color: white;
+}
+
+.flight-card-1 {
+width: 100%;
+height: 550px;
+border-radius: 35px;
+margin: 10px auto;
+box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+display: none;
+}
+.flight-card-2 {
+  width: 100%;
+  height: 550px;
+  border-radius: 35px;
+  margin: 10px auto;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  display: none;
+}
+
+.flight-card--header {
+width: 100%;
+height: 230px;
+background: linear-gradient(to bottom, #264b76 0%,#002c5f 100%);
+padding: 20px 55px;
+border-bottom: 7px solid #6DBE47;
+position: relative;
+}
+
+.flight-card--header:before {
+content: '';
+position: absolute;
+width: 15px;
+height: 15px;
+background: #fff;
+border-radius: 50px;
+top: 50%;
+left: 0;
+transform: translateY(-50%) translateX(-50%);
+}
+
+.flight-card--header-logo {
+width: 175px;
+margin: 0 0 20px 0;
+}
+
+.flight-card--header-details {
+width: 100%;
+height: auto;
+border-top: 3px solid rgba(255,255,255,0.3);
+color: #fff;
+}
+
+.details-passenger {
+width: 50%;
+float: left;
+}
+
+.details-depart, .details-arrive {
+width: 25%;
+float: left;
+}
+
+.detail--title {
+opacity: 0.5;
+display: block;
+margin: 30px 0 0 0;
+}
+
+.passenger-name {
+display: block;
+margin: 5px 0 0 0;
+}
+
+.flight-card--details {
+padding: 50px 55px;
+}
+
+.detail-code {
+color: #002C5F;
+font-size: 70px;
+display: block;
+font-weight: 100;
+}
+
+.detail-city {
+color: #002C5F;
+
+}
+
+.bc-from {
+width: 30%;
+float: left;
+}
+
+.bc-to {
+width: 30%;
+float: right;
+text-align: right;
+}
+
+.bc-plane {
+width: 40%;
+float: left;
+text-align: center;
+position: relative;
+}
+
+.bc-plane img {
+width: 20%;
+margin: 20px auto 0 auto;
+}
+
+
+.flight-card-details--text {
+width: 100%;
+padding: 80px 0 0 0;
+clear: both;
+overflow: auto;
+}
+
+.text-left {
+width: 33%;
+float: left;
+}
+
+.text-middle {
+width: 33%;
+float: left;
+padding: 0 0 0 80px
+}
+
+.mint {
+position: relative;
+}
+
+.mint:before {
+content: '';
+position: absolute;
+bottom: 5px;
+right: 70px;
+width: 10px;
+height: 10px;
+background: #6DBE47;
+border-radius: 50%;
+}
+
+.text-right {
+width: 33%;
+float: right;
+text-align: right;
+}
+
+.text-hline {
+color: #6a8597;
+text-transform: uppercase;
+display: block;
+letter-spacing: 2px;
+}
+
+.text-actual {
+color: #002C5F;
+padding: 10px 0 0 0;
+display: block;
+}
+
+/* Date Picker */
+.datepicker-date-display {  
+  background-color: midnightblue;  
+}
+.datepicker-table td.is-selected{
+  background-color: midnightblue;
+
+}
+/* .datepicker-table td.is-today {
+    color: midnightblue;
+}
+.datepicker-table td.is-today:active {
+    color: white;
+
+
+} */
+/*Header*/
+.nav-wrapper {
+    background-color: midnightblue;
+}
+/*Footer*/
+#footer {
+  margin-top: 100px;
+}
+
+.page-footer {
+    background-color: midnightblue;
+    position: relative;
+    bottom: 0px;
+}
+
+/*Buttons*/
+.btn-large {
+    background-color: midnightblue;
+}
+
+
+
+
+/* .picker__day--selected, .picker__day--selected:hover, .picker--    focused       .picker__day--selected  
+{  
+  background-color: red;  
+} */
+#flight-card{
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  border-radius: 2px
+}
+
+.plane-icon{
+  content: "\e722";
+  top: 45%;
+}
+
+h4 {
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.passName{
+  font-size: 16px;
+}
+
+#mLeft{
+  margin-left: 35px;
+  
+}
+
+.flight-card-title{
+  margin-left: 35px;
+  font-weight: 400;
+}
+
+.flight-info{
+  display: inline-block;
+}
+
+#ticket-info{
+  margin-left: 35px;
+}
+
+.vertical_dotted_line
+{
+    border-left: 1px dotted black;
+    height: 100px;
+} 
+
+#flight-header{
+  background-color: midnightblue;
+}
+
+#ainfo{
+  margin-top: 10px;
+
+}
+/**/
+#fromDiv{
+  display: none;
+
+}
+#returnDiv{
+  display: none;
+}
+h6 {
+  font-weight: bold;
+  color: midnightblue;
+}
+#header-sec2{
+  font-size: 12px;
+}
+
+.priceInput{
+  font-size: 20px;
+}
+
+#plane{
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.margin1{
+  font-size: 18px;
+}
