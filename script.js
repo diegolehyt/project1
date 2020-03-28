@@ -121,7 +121,7 @@ document.getElementById('submitBtn').addEventListener('click', function (event) 
         'https://api.skypicker.com/flights?flyFrom=' + locationFrom2 + '&to=' + locationTo2 + '&dateFrom=' + dateTo + '&partner=picky&v=3';
 
     //currency API
-    let currencyURL = 'http://data.fixer.io/api/latest?access_key=fe4a412b107682cf0ed9c555bfc457c7&symbols=' + currency;
+    let currencyURL = 'https://api.frankfurter.app/latest?access_key=fe4a412b107682cf0ed9c555bfc457c7&symbols=' + currency;
 
     //--------------------------------------------------  Flight From API call  ----------------------------------------------------------------
     fetch(flightURL)
