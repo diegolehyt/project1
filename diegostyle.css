@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 
+/*-------------------------- Page Styles -------------------*/
 ::after, ::before{
   box-sizing: border-box;
 }
 
-#booking{
+body{
   font-family: 'Montserrat', sans-serif;
   background-image: url(file:///C:/Users/balog/Desktop/project1/img1.jpg);
   background-size: cover;
   background-position: center;
-  position: relative;
-  height: 160vh;
 }
+
 
 #booking::before {
 	content: '';
@@ -22,10 +22,11 @@
 	bottom: 0;
 	top: 0;
 	background: rgba(47, 103, 177, 0.6);
-} 
+}
 
 .section{
- 
+  position: relative;
+  height: 100vh;
 }
 
 .section .section-center{
@@ -205,6 +206,15 @@ body{
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,400');
 
 
+
+
+body {
+/* display: flex; */
+align-items: center;
+justify-content: center;
+font-family: 'Roboto', sans-serif;
+}
+
 .top-header{
 max-width: 100%; 
 font-size: 22px; 
@@ -217,9 +227,10 @@ height: 550px;
 border-radius: 35px;
 margin: 10px auto;
 box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+display: none;
 }
 .flight-card-2 {
-  width: 600px;
+  width: 100%;
   height: 550px;
   border-radius: 35px;
   margin: 10px auto;
@@ -373,67 +384,42 @@ padding: 10px 0 0 0;
 display: block;
 }
 
-#main-page{
-  display: none; 
+/* Date Picker */
+.datepicker-date-display {  
+  background-color: midnightblue;  
 }
-#result-page{
-  /* display: none; */
-}
-
-#flight-card{
-  position: relative;
-  margin: 0.5rem 0 1rem 0;
-  background-color: #fff;
-  border-radius: 2px
-}
-
-.plane-icon{
-  content: "\e722";
-  top: 45%;
-}
-
-h4 {
-  display: block;
-  margin-block-start: 1.33em;
-  margin-block-end: 1.33em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
-
-.passName{
-  font-size: 16px;
-}
-
-#mLeft{
-  margin-left: 35px;
-  
-}
-
-.flight-card-title{
-  margin-left: 35px;
-  font-weight: 400;
-}
-
-.flight-info{
-  display: inline-block;
-}
-
-#ticket-info{
-  margin-left: 35px;
-}
-
-.vertical_dotted_line
-{
-    border-left: 1px dotted black;
-    height: 100px;
-} 
-
-#flight-header{
-  background-color: blue;
-}
-
-#ainfo{
-  margin-top: 10px;
+.datepicker-table td.is-selected{
+  background-color: midnightblue;
 
 }
+/* .datepicker-table td.is-today {
+    color: midnightblue;
+}
+.datepicker-table td.is-today:active {
+    color: white;
+
+
+} */
+/*Header*/
+.nav-wrapper {
+    background-color: midnightblue;
+}
+/*Footer*/
+.page-footer {
+    background-color: midnightblue;
+    position: relative;
+    bottom: 0px;
+}
+
+/*Buttons*/
+.btn-large {
+    background-color: midnightblue;
+}
+
+
+
+
+/* .picker__day--selected, .picker__day--selected:hover, .picker--    focused       .picker__day--selected  
+{  
+  background-color: red;  
+} */

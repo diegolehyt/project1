@@ -27,7 +27,7 @@
 
     <section>
         <div id="booking"  class="section">
-            <div class="section-center">
+            <div id="main-page" class="section-center">
                 <div class="container">
                     <div class="row">
                         <div class="col s6 14 offset-14">
@@ -36,36 +36,39 @@
                                 <div class="card-content">
                                     <div class="form-field">
                                         <label for="name">Name:</label>
-                                        <input type="text" id="nameInput" placeholder="Jane Doe">
+                                        <input type="text" id="pInput" placeholder="Jane Doe">
                                     </div>
             
                                     <div class="form-field">
                                         <label for="name">Flying From:</label>
-                                        <input type="text" id="locationInput" placeholder="airport code">
+                                        <input type="text" id="locationInput" placeholder="airport code" onkeyup="this.value = this.value.toUpperCase();" onfocus="this.value=''">
                                     </div>
             
                                     <div class="form-field">
                                         <label for="name">Flying To:</label>
-                                        <input type="text" id="destinationInput" placeholder="airport code">
+                                        <input type="text" id="destinationInput" placeholder="airport code"onkeyup="this.value = this.value.toUpperCase();">
                                     </div>
                                     <hr>
-            
-                                    <div class="form-field">
-                                        <label for="name">Deaparting Date:</label>
-                                        <input type="date" id="departingInput" placeholder="mm/dd/yyyy">
-                                    </div>
-            
+
                                     <div>
                                         <label>
                                             <input type="checkbox" id="checkbox"/>
                                             <span>Round Trip</span>
                                         </label>
                                     </div>
-            
-                                    <div class="form-field">
-                                        <label for="name">Returning Date:</label>
-                                        <input type="date" id="returnungInput" placeholder="mm/dd/yyyy">
+
+                                    <div class="row">
+                                        <div class="form-field col s6">
+                                            <label for="name">Deaparting Date:</label>
+                                            <input type="text" id="departingInput" class="datepicker" placeholder="mm/dd/yyyy">
+                                        </div>
+                
+                                        <div class="form-field col s6">
+                                            <label for="name">Returning Date:</label>
+                                            <input type="text" id="returningInput" class="datepicker" placeholder="mm/dd/yyyy">
+                                        </div>
                                     </div>
+                                    
             
                                     <div class="form-field">
                                         <label for="name">Currency: </label>
@@ -87,8 +90,162 @@
                     </div>
                 </div>
             </div>   
+            
+            <!-- ---------------------------------------   Result Divs Start Here!  ------------------------------------ -->
+            <section id="result-page">
+                <div id="loader" class="loader" style="display: none; text-align: justify;"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12">
+                          <div id="flight-card" class="card">
+                            <div id="flight-header" class="card-header white-text">
+                              <div class="card-title">
+                                  <h4 class="flight-card-title">Flight Information</h4>
+                                  <hr>
+                                  <div class="row">
+                                    <div id="mLeft" class="col s5 left-align">
+                                        <span id="pFrom" class="passName">Oluwatoyin Balogun</span>
+                                    </div>
+                                    <div class="col s5 right-align">
+                                          <strong><span class="priceInput">$333</span></strong>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="card-content">
+                              <div class="row flight-state-wrapper">
+                                  <div class="col s5 m5 15 center-align">
+                                      <div class="flight-state">
+                                          <h4 class="margin">LDN</h4>
+                                          <p class="ultra-small">London, England</p>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="col s2 15 center-align">
+                                    <i class="fas fa-plane plane-icon"></i>
+                                  </div> 
+                                  
+                                  <div class="col s5 m5 l5 center-align">
+                                    <div class="flight-state">
+                                        <h4 class="margin">SFO</h4>
+                                        <p class="ultra-small">San Francisco, USA</p>
+                                    </div>
+                                </div>
+                              </div>
+                            
+                              
+                              <div id="ticket-info" class="row">
+                                <div id="ainfo" class="col s6 m4 l5">
+                                    <div class="flight-info">
+                                        <p>Departure:<span class="dDate">*insert date</span></p>
+                                        <p>Number of Stops:<span class="numStops">*insert #</span></p>
+                                        <p>Duration:<span class="duration"></span>*insert #</p>
+                                    </div>
+                               </div>
+                              
+                               <div id="ainfo" class="col s6 m4 l5">
+                                    <div class="flight-info">
+                                      <p>Arrival:<span class="aDate">*insert date</span></p>
+                                      <p>Number of Stops:<span class="numStops">*insert #</span></p>
+                                      <p>Duration:<span class="duration"></span>*insert #</p>
+                                    </div>
+                               </div>
+                             </div>
+                            </div>
+                        </div>
+                   </div>
+                 </div>
+
+                 <div class="row">
+                    <div class="col s12">
+                      <div id="flight-card" class="card">
+                        <div id="flight-header" class="card-header white-text">
+                          <div class="card-title">
+                              <h4 class="flight-card-title">Flight Information</h4>
+                              <hr>
+                              <div class="row">
+                                <div id="mLeft" class="col s5 left-align">
+                                    <span class="passName">Oluwatoyin Balogun</span>
+                                </div>
+                                <div class="col s5 right-align">
+                                      <strong><span class="priceInput">$333</span></strong>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="card-content">
+                          <div class="row flight-state-wrapper">
+                              <div class="col s5 m5 15 center-align">
+                                  <div class="flight-state">
+                                      <h4 class="margin">LDN</h4>
+                                      <p class="ultra-small">London, England</p>
+                                  </div>
+                              </div>
+                              
+                              <div class="col s2 15 center-align">
+                                <i class="fas fa-plane plane-icon"></i>
+                              </div> 
+                              
+                              <div class="col s5 m5 l5 center-align">
+                                <div class="flight-state">
+                                    <h4 class="margin">SFO</h4>
+                                    <p class="ultra-small">San Francisco, USA</p>
+                                </div>
+                            </div>
+                          </div>
+                        
+                          
+                          <div id="ticket-info" class="row">
+                              <div id="ainfo" class="col s6 m4 l5">
+                                  <div class="flight-info">
+                                      <p>Departure:<span class="dTime">*insert time</span></p>
+                                      <p>Number of Stops:<span class="numStops">*insert #</span></p>
+                                      <p>Duration:<span class="duration"></span>*insert #</p>
+                                  </div>
+                             </div>
+                            
+                             <div id="ainfo" class="col s6 m4 l5">
+                                  <div class="flight-info">
+                                    <p>Arrival:<span class="aTime">*insert time</span></p>
+                                    <p>Number of Stops:<span class="numStops">*insert #</span></p>
+                                    <p>Duration:<span class="duration"></span>*insert #</p>
+                                  </div>
+                             </div>
+                           </div>
+                        </div>
+                    </div>
+               </div>
+              </div>
+
+                <!-- total card -->
+                <div class="col s12 m7" id="totalPriceDiv">
+                    <div class="card horizontal">
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h4>Total Price: <span id="totalPriceF">$$$$$$$</span></h4>
+                            </div>
+                            <div  class="center-align">
+                                <button id="submitBtn" type="submit" class="btn-large blue">Go Back</button>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                    
+                
+                <!-- END Buttons -->
+                
+           
+            </div>
+
+        </section>
+       
         </div>
     </section>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
